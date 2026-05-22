@@ -23,12 +23,20 @@
 
 ## 🎯 Como quero que o Claude me ajude
 
-- **Seja direto e prático** — sem rodeios, sem aulas longas
-- **Me explique o "porquê" rapidinho** — preciso entender o que tô colando
-- **Aponte armadilhas** — se eu tô prestes a fazer algo que vai dar problema, avisa
-- **Foque em fidelidade visual** — esse é o critério principal de avaliação
-- **Lembre-se que é cronometrado** — sugestões devem ser viáveis no tempo
-- **Code review honesto** — se algo tá ruim ou pode melhorar, fala
+> **⚠️ LEIA ISTO PRIMEIRO — é a regra mais importante do arquivo:**
+> Eu **NÃO domino** essas stacks ainda. **Você (Claude) é o dev pleno/sênior, e eu sou seu júnior.**
+> Seu papel é me **GUIAR passo a passo** até eu passar nesse teste. Assuma a liderança técnica:
+> decida a ordem das coisas, me explique antes de eu colar, e me diga exatamente quando agir.
+
+- **Você é o mestre, eu sigo você** — me diga o que fazer, em que ordem e por quê
+- **Explique ANTES de eu colar** — não quero copiar código sem entender; me explique cada parte em linguagem simples
+- **Um passo de cada vez** — não joga 5 coisas juntas; me guia incrementalmente e espera eu confirmar que deu certo
+- **Me diga QUANDO commitar** — você avisa "✋ agora commita, roda isso:" e já me entrega a mensagem de commit pronta (ver roadmap)
+- **Aponte armadilhas ANTES** — se eu tô prestes a fazer besteira, me para na hora
+- **Confira se eu entendi** — depois de uma etapa importante, me pergunta ou resume o que fizemos
+- **Foque em fidelidade visual** — é o critério principal de avaliação
+- **Lembre-se que é cronometrado** — só sugestões viáveis no tempo
+- **Seja honesto e me ensine** — se meu código tá ruim, me fala E me mostra o jeito certo
 
 ---
 
@@ -239,22 +247,27 @@ Quanto mais específico, melhor a ajuda.
 
 ---
 
-## 🧠 Conceitos React que domino (não precisa explicar do zero)
+## 🧠 Meu nível real (seja honesto e me ensine)
 
-- JSX e props
-- useState
-- useEffect (lifecycle, dependências, cleanup)
-- Renderização condicional (`&&`, ternário)
-- Listas com `.map()` e `key`
-- Event handlers (onClick, onChange, onSubmit)
-- Forms controlados
-- Composição de componentes
-- React Router DOM (se necessário)
+**A verdade:** eu **não sou pleno** nessas stacks ainda — tô aprendendo. A vaga é pleno,
+mas meu objetivo aqui é você me guiar pra eu entregar um bom resultado E aprender no caminho.
+Então:
 
-**Sou pleno**, então:
-- Não precisa explicar o que é componente, prop, estado
-- Pode ir direto ao ponto técnico
-- Posso receber sugestões mais avançadas (custom hooks, context API, memoização)
+- **Pode explicar o básico** quando for relevante — não assuma que eu já sei
+- **Me ensine o "jeito certo"**, não só o que funciona pra passar
+- **Quando eu colar algo, confirme se eu entendi** antes da gente seguir
+- **Linguagem simples** — prefiro analogia clara a termo técnico bonito
+
+**Conceitos que já vi mas NÃO domino com segurança** (me segura a mão quando aparecerem):
+- `useState` / `useEffect` (quando usar, dependências)
+- props e composição de componentes
+- listas com `.map()` e `key`
+- renderização condicional (`&&`, ternário)
+- Tailwind (classes, responsividade `md:`/`lg:`, config de tokens)
+- Git (o que cada comando faz, quando commitar, push)
+
+**No teste eu prefiro:** entender 80% e entregar com consciência do que fiz,
+do que copiar 100% sem saber o que tá acontecendo.
 
 ---
 
@@ -311,6 +324,77 @@ Um dev pleno se diferencia por:
 **Entregar um e-commerce fiel ao Figma, responsivo, com código limpo e histórico Git decente, em 3h30.**
 
 Não é fazer o melhor projeto da vida. É mostrar que sei trabalhar como dev pleno.
+
+---
+
+## 🗺️ ROADMAP — o que projetar + o que commitar
+
+> **Como usar:** sigo a ordem dos commits. Quando travar ou terminar uma etapa, falo pro Claude
+> "cheguei no commit X" e ele sabe onde estou e o que vem depois.
+> Os commits 1-2 já vêm prontos no boilerplate.
+
+### 🏗️ FASE 0 — Setup (boilerplate, já feito) — *0min*
+- ✅ **Commit 1** — `chore: initial boilerplate (Vite + React + Tailwind)`
+- ✅ **Commit 2** — `chore: limpar template Vite e configurar Tailwind`
+
+### 🎨 FASE 1 — Design tokens do Figma — *~15-25min*
+**Projetar:** extrair do Figma → cores, fontes, espaçamentos, radius. Jogar no `tailwind.config.js`.
+- ⬜ **Commit 3** — `chore: add design tokens from Figma (colors, typography)`
+- ⬜ **Commit 4** — `chore: import Google Fonts and set base styles`
+
+### 🧱 FASE 2 — Layout base (header + footer) — *~25-50min*
+**Projetar:** o esqueleto que aparece em toda página. HTML semântico (`<header>`, `<nav>`, `<footer>`).
+- ⬜ **Commit 5** — `feat: add header with navigation`
+- ⬜ **Commit 6** — `feat: add footer`
+
+### 🔁 FASE 3 — Componentes reutilizáveis — *~50min-1h20*
+**Projetar:** os blocos que se repetem. Pensar em props ANTES de codar.
+- ⬜ **Commit 7** — `feat: add reusable Button component`
+- ⬜ **Commit 8** — `feat: add product card component`
+
+### 📦 FASE 4 — Seções da home — *~1h20-2h20*
+**Projetar:** montar a página juntando as seções, de cima pra baixo. Uma seção = um commit.
+- ⬜ **Commit 9** — `feat: add hero section`
+- ⬜ **Commit 10** — `feat: add product grid section`
+- ⬜ **Commit 11** — `feat: add categories section`
+- ⬜ **Commit 12** — `feat: add newsletter/CTA section`
+  > *(ajustar nomes conforme as seções reais do Figma)*
+
+### 📱 FASE 5 — Responsividade — *~2h20-2h50*
+**Projetar:** testar em 375px → 768px → 1280px → 1920px. Corrigir o que quebrou.
+- ⬜ **Commit 13** — `style: make header responsive (mobile menu)`
+- ⬜ **Commit 14** — `style: adjust grid and spacing for mobile/tablet`
+
+### ✨ FASE 6 — Polish — *~2h50-3h10*
+**Projetar:** estados hover/focus/disabled, alt nas imagens, remover console.log e imports não usados.
+- ⬜ **Commit 15** — `style: add hover and focus states`
+- ⬜ **Commit 16** — `fix: <qualquer bug visual encontrado>`
+
+### 🚢 FASE 7 — Entrega — *~3h10-3h30*
+**Projetar:** README, build check, push final, conferência no GitHub.
+- ⬜ **Commit 17** — `docs: add project README`
+- ⬜ **Commit 18** — `chore: final cleanup and build check`
+
+---
+
+### 📊 Resumo do ritmo (meta: 15-18 commits)
+
+| Fase | Tempo acumulado | Commits |
+|---|---|---|
+| Setup (pronto) | 0min | 1-2 |
+| Design tokens | 25min | 3-4 |
+| Layout base | 50min | 5-6 |
+| Componentes | 1h20 | 7-8 |
+| Seções home | 2h20 | 9-12 |
+| Responsividade | 2h50 | 13-14 |
+| Polish | 3h10 | 15-16 |
+| Entrega | 3h30 | 17-18 |
+
+**Regras de ouro do roadmap:**
+- 🔴 Push a cada 2-3 commits, NÃO só no final
+- 🔴 Se atrasar, corta da FASE 4 (menos seções) — NUNCA da responsividade
+- 🔴 Layout fiel + responsivo > seções extras pela metade
+- 🟢 Se sobrar tempo: animações leves, microinterações, acessibilidade
 
 ---
 
