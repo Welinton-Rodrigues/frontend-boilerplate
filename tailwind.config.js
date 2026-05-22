@@ -11,6 +11,7 @@ export default {
         primary: '#10152E',   // mais escuro: títulos + botão principal
         secondary: '#262D4D', // médio: preços, textos de destaque
         muted: '#4E5265',     // mais claro: categorias e textos auxiliares
+        navy: '#05091C',      // fundo escuro do footer
       },
       fontFamily: {
         sans: ['Quicksand', 'sans-serif'],
