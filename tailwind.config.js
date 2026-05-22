@@ -7,12 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        // No dia do teste, troca por cores do Figma
-        primary: '#0066FF',
-        secondary: '#FF6B35',
+        // Cores do Figma — HAVEN (3 tons do mesmo azul-marinho)
+        primary: '#10152E',   // mais escuro: títulos + botão principal
+        secondary: '#262D4D', // médio: preços, textos de destaque
+        muted: '#4E5265',     // mais claro: categorias e textos auxiliares
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Quicksand', 'sans-serif'],
       },
     },
   },
