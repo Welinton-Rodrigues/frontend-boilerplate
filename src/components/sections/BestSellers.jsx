@@ -1,24 +1,35 @@
+import { useState, useEffect } from 'react'
 import ProductCard from '../ui/ProductCard'
+import { getProducts } from '../../services/api'
 import foxImg from '../../assets/fox.jpg'
 import rabbitImg from '../../assets/rabbit.jpg'
 
-// TODO: substituir duplicatas pelas imagens reais quando exportar do Figma
-const products = [
-  { id: 1, image: foxImg,    category: 'Accessories', name: 'Fox',     price: '$9.99'  },
-  { id: 2, image: rabbitImg, category: 'Accessories', name: 'Rabbit',  price: '$9.99'  },
-  { id: 3, image: foxImg,    category: 'Accessories', name: 'Lion',    price: '$14.99' },
-  { id: 4, image: rabbitImg, category: 'Accessories', name: 'Giraffe', price: '$19.99' },
-  { id: 5, image: foxImg,    category: 'Accessories', name: 'Monkey',  price: '$19.99' },
-  { id: 6, image: rabbitImg, category: 'Accessories', name: 'Cheetah', price: '$14.99' },
-  { id: 7, image: foxImg,    category: 'Accessories', name: 'Deer',    price: '$14.99' },
-  { id: 8, image: rabbitImg, category: 'Accessories', name: 'Squirrel', price: '$29.99' },
-]
+const placeholderImages = {
+  Fox:      foxImg,
+  Rabbit:   rabbitImg,
+  Lion:     foxImg,
+  Giraffe:  rabbitImg,
+  Monkey:   foxImg,
+  Cheetah:  rabbitImg,
+  Deer:     foxImg,
+  Squirrel: rabbitImg,
+}
 
 function BestSellers() {
+  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    getProducts()
+      .then(data => setProducts(data))
+      .catch(err => setError(err.message))
+      .finally(() => setLoading(false))
+  }, [])
+
   return (
     <section className="bg-surface px-6 py-12">
       <div className="mx-auto max-w-7xl">
-        {/* Cabeçalho da seção */}
         <div className="mb-8 flex items-center justify-between">
           <h2 className="text-2xl font-normal text-primary">Best sellers</h2>
           <a
@@ -42,12 +53,27 @@ function BestSellers() {
           </a>
         </div>
 
-        {/* Grid 4 colunas */}
-        <div className="grid grid-cols-4 gap-6">
-          {products.map((product) => (
-            <ProductCard key={product.id} {...product} />
-          ))}
-        </div>
+        {loading && (
+          <p className="text-sm text-muted">Carregando produtos...</p>
+        )}
+
+        {error && (
+          <p className="text-sm text-red-500">Erro ao carregar produtos.</p>
+        )}
+
+        {!loading && !error && (
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                image={placeholderImages[product.name]}
+                category={product.category}
+                name={product.name}
+                price={`$${product.price.toFixed(2)}`}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )
