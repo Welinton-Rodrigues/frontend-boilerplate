@@ -1,11 +1,11 @@
-import logo from '../assets/haven.svg'
+import logo from '../../assets/haven.svg'
 
 // Links do menu (aparecem só no desktop)
 const navLinks = ['Home', 'Services', 'About', 'Contact']
 
 function Header() {
   return (
-    <header className="w-full border-b border-gray-100 bg-white">
+    <header className="w-full border-b border-accent bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo (imagem exportada do Figma) */}
         <a href="#">

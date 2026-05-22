@@ -12,6 +12,7 @@ export default {
         secondary: '#262D4D', // médio: preços, textos de destaque
         muted: '#4E5265',     // mais claro: categorias e textos auxiliares
         navy: '#05091C',      // fundo escuro do footer
+        accent: '#CDBB88',  // dourado do stroke da nav bar
       },
       fontFamily: {
         sans: ['Quicksand', 'sans-serif'],
